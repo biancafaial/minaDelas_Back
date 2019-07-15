@@ -9,7 +9,7 @@ const MinasSchema = new Schema({
   cpf: {type: String, required:true},
   categoria: { type: String },
   descricao: { type: String }, // opcional
-  senha: {type: String}
+
 })
 
 // é a nossa coleção de minas

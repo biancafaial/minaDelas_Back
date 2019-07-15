@@ -8,27 +8,14 @@ servidor.use(cors())
 servidor.use(bodyParser.json())
 
 servidor.get('/minas', async (request, response) => {
-  controller.getAll()
+  controller.getAll( request.params)
     .then(minas => response.send(minas))
 })
 
-servidor.get('/minas/:id', (request, response) => {
-  const id = request.params.id
-  controller.getById(id)
-    .then(mina => {
-      if(!mina){ // comida === null || comida === undefined
-        response.sendStatus(404) // comida nao encontrada
-      } else {
-        response.send(mina)
-      }
-    })
-    .catch(error => {
-      if(error.name === "CastError"){
-        response.sendStatus(400) // bad request - tem algum parametro errado
-      } else {
-        response.sendStatus(500) // deu ruim, e nao sabemos oq foi
-      }
-    })
+servidor.get('/minas/:categoria', async (request, response) => {
+
+  let minas = await controller.getById(request.params)
+  response.status(200).send(minas)  
 })
 
 servidor.post('/minas', (request, response) => {

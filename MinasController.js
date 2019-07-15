@@ -9,8 +9,12 @@ const getAll = async () => {
   })
 }
 
-const getById = (id) => {
-  return minasModel.findById(id) 
+const getById = (params) => {
+  console.log(params)
+  return minasModel.find({categoria: params.categoria}, (error, minas) => {
+    console.log(minas)
+    return minas
+  }) 
 }
 
 
