@@ -73,6 +73,6 @@ servidor.delete('/minas/:id', async (request, response) => {
   controller.remove(request.params.id)
     .then(mina => response.sendStatus(204))
 })
-
-servidor.listen(3000)
+ let port = process.env.PORT;
+servidor.listen(port)
 console.log("servidorzinho rodando na porta 3000")
