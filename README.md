@@ -1,4 +1,6 @@
-# Servidorzinho Lindo e Maravilhoso
+# Servidorzinho Lindo
+
+Servidor produzido em node
 
 Instalação:
 
